@@ -1,0 +1,643 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red100\green56\blue32;\red196\green26\blue22;
+\red170\green13\blue145;\red92\green38\blue153;\red0\green116\blue0;\red28\green0\blue207;\red46\green13\blue110;
+\red63\green110\blue116;\red38\green71\blue75;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;\csgenericrgb\c39100\c22000\c12500;\csgenericrgb\c77000\c10200\c8600;
+\csgenericrgb\c66500\c5200\c56900;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c0\c45600\c0;\csgenericrgb\c11000\c0\c81000;\csgenericrgb\c18100\c5200\c43100;
+\csgenericrgb\c24700\c43100\c45600;\csgenericrgb\c14900\c27800\c29400;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+This is .h file of nsobject\
+\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf2 \CocoaLigature0 \
+\cf3 #import \cf4 <Foundation/Foundation.h>\cf3 \
+#import \cf4 <UIKit/UIKit.h>\cf3 \
+\cf2 \
+\cf5 @interface\cf2  Common : \cf6 NSObject\cf2 \
+\
+\cf7 //#define NSLog if(1); else NSLog\cf2 \
+\
+\
+\cf3 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)\
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)\
+#define IS_RETINA ([[UIScreen mainScreen] scale] == \cf8 2.0\cf3 )\
+\cf2 \
+\
+\cf3 #define IS_IPHONE_4 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == \cf8 480.0\cf3 )\
+#define IS_IPHONE_5 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == \cf8 568.0\cf3 )\
+#define IS_IPHONE_6 (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == \cf8 667.0\cf3 )\
+#define IS_IPHONE_6_PLUS (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == \cf8 736.0\cf3 )\
+\cf7 //#define IS_IPHONE_6PLUS (IS_IPHONE && [[UIScreen mainScreen] nativeScale] == 3.0f)\cf2 \
+\
+\
+\
+\cf7 //=====for web services===\cf2 \
+\cf5 extern\cf2  \cf6 NSString\cf2  * \cf5 const\cf2  WebServiceURL;\
+\cf5 extern\cf2  \cf6 NSString\cf2  * \cf5 const\cf2  WebURL;\
+\cf7 //=====================\cf2 \
+\
+\
+\
+\
++ (\cf5 void\cf2 ) setBackgroundImage : (\cf6 UIView\cf2  *)view;\
+\
++ (\cf5 void\cf2 )setNavBarColor : (\cf6 UINavigationBar\cf2  *) bar;\
+\
++(\cf6 UIColor\cf2 *)colorWithHexString:(\cf6 NSString\cf2 *)hex;\
+\
++ (\cf5 void\cf2 ) setFontRomyCapsStyleToAllControls : (\cf6 UIView\cf2  *)view;\
++ (\cf5 void\cf2 ) setFontUbuntuStyleToAllControls : (\cf6 UIView\cf2  *)view;\
+\
++ (\cf6 NSString\cf2  *) getJsonStringFromXML :(\cf6 NSString\cf2  *)xmlString startingTag: (\cf6 NSString\cf2  *) startTag endingTag: (\cf6 NSString\cf2  *)endTag;\
++ (\cf5 void\cf2 ) loadDataFromServer : (\cf6 NSString\cf2  *) methodName : (\cf6 NSDictionary\cf2  *)dictParameters : (\cf5 id\cf2 ) viewID : (\cf5 int\cf2 ) requestTag;\
+\
++(\cf5 void\cf2 ) makeCircleToView:(\cf6 UIView\cf2  *) view;\
++(\cf5 void\cf2 ) makeRoundedToView:(\cf6 UIView\cf2  *) view;\
+\
++(\cf5 void\cf2 )setTextFiledPlaceHolder: (\cf6 UITextField\cf2  *)textFiledName coordinate: (\cf6 NSString\cf2  *)placeHolderName;\
+\
++(\cf5 BOOL\cf2 ) IsValidEmail:(\cf6 NSString\cf2  *)checkString;\
++(\cf5 BOOL\cf2 ) isValidMobileNumber:(\cf6 NSString\cf2  *)checkString : (\cf5 int\cf2 ) length;\
++ (\cf5 BOOL\cf2 ) validateUrl: (\cf6 NSString\cf2  *) candidate;\
+\
++(\cf6 NSString\cf2  *)convertHTMLStringToNSString:(\cf6 NSString\cf2  *)html;\
++ (\cf6 NSString\cf2 *)convertNSStringToHTMLString:(\cf6 NSString\cf2 *)str;\
+\
+\
++ (\cf5 void\cf2 ) setGlobalObjectForKey : (\cf6 NSObject\cf2  *)obj key: (\cf6 NSString\cf2  *) key;\
++ (\cf6 NSObject\cf2  *) getGlobalObjectForKey : (\cf6 NSString\cf2  *) key;\
++ (\cf5 void\cf2 ) deleteGlobalObjectForKey : (\cf6 NSString\cf2  *) key;\
+\
+\
++(\cf5 void\cf2 ) allFilterSelectValueMustBeZero;\
+\
+\
+\cf7 // Returns largest possible centered cropped image.\cf2 \
++ (\cf6 UIImage\cf2  *)centerCropImage:(\cf6 NSString\cf2  *)strImageUrl;\
+\
+\
+\cf5 @end\cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\
+\
+\
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\
+\
+This is .m file of nsobject\
+\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf2 \CocoaLigature0 \
+\
+\cf3 #import \cf4 "Common.h"\cf3 \
+#import \cf4 "JSON.h"\cf3 \
+#import \cf4 "ASIFormDataRequest.h"\cf3 \
+\cf2 \
+\cf5 @implementation\cf2  Common\
+\
+\cf7 //=====for web services===\cf2 \
+\cf6 NSString\cf2  * \cf5 const\cf2  WebServiceURL = \cf4 @\'93\'94;\
+\cf6 NSString\cf2  * \cf5 const\cf2  WebURL = \cf4 @""\cf2 ;\
+\cf7 //======================\
+\
+\cf2 \
+\
+\
+\
+\cf7 //====set background image on uiview=========\cf2 \
++ (\cf5 void\cf2 ) setBackgroundImage : (\cf6 UIView\cf2  *)view\
+\{\
+    \cf6 UIImageView\cf2  *backgroundView = [[\cf6 UIImageView\cf2  \cf9 alloc\cf2 ] \cf9 initWithImage\cf2 :[\cf6 UIImage\cf2  \cf9 imageNamed\cf2 :\cf4 @"bg.png"\cf2 ]];\
+    backgroundView.\cf6 autoresizingMask\cf2  = \cf9 UIViewAutoresizingFlexibleWidth\cf2  | \cf9 UIViewAutoresizingFlexibleHeight\cf2 ;\
+    [backgroundView \cf9 setContentMode\cf2 :\cf9 UIViewContentModeScaleAspectFill\cf2 ];\
+    [backgroundView \cf9 setFrame\cf2 :view.\cf6 frame\cf2 ];\
+    [view \cf9 insertSubview\cf2  : backgroundView \cf9 atIndex\cf2 :\cf8 0\cf2 ];\
+\}\
+\
+\
+\cf7 //====set navigation bar=========\cf2 \
++ (\cf5 void\cf2 )setNavBarColor : (\cf6 UINavigationBar\cf2  *) bar\
+\{\
+    \
+    \cf5 if\cf2  ([[[\cf6 UIDevice\cf2  \cf9 currentDevice\cf2 ] \cf9 systemVersion\cf2 ] \cf9 floatValue\cf2 ] >= \cf8 7\cf2 )\
+    \{\
+        \cf6 NSDictionary\cf2  *attributes = [\cf6 NSDictionary\cf2  \cf9 dictionaryWithObjectsAndKeys\cf2 :[\cf6 UIFont\cf2 \
+                                                                               \cf9 fontWithName\cf2 :\cf10 myFontUbuntuRegular\cf2  \cf9 size\cf2 :\cf8 18\cf2 ], \cf6 NSFontAttributeName\cf2 ,\
+                                    [\cf10 Common\cf2  \cf11 colorWithHexString\cf2 :\cf4 @"000000"\cf2 ], \cf6 NSForegroundColorAttributeName\cf2 , \cf5 nil\cf2 ];\
+        bar.\cf6 titleTextAttributes\cf2  =attributes;\
+        \
+\cf7 //        [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];\cf2 \
+\cf7 //        bar.shadowImage = [UIImage new];\cf2 \
+\cf7 //        bar.translucent = YES;\cf2 \
+\cf7 //        bar.backgroundColor = [UIColor clearColor];\cf2 \
+        \
+    \}\
+    \
+    \cf7 //======set navigation bar ======\cf2 \
+    \cf6 UIImage\cf2  *backgroundImage = [\cf6 UIImage\cf2  \cf9 imageNamed\cf2 :\cf4 @"header.png"\cf2 ];\
+    [bar \cf9 setBackgroundImage\cf2 :backgroundImage \cf9 forBarMetrics\cf2 :\cf9 UIBarMetricsCompact\cf2 ];\
+    bar.\cf6 translucent\cf2  = \cf5 NO\cf2 ;\
+    \
+    [\cf10 Common\cf2  \cf11 setFontRomyCapsStyleToAllControls\cf2 :bar];\
+\}\
+\
+\cf7 //====set hax color string=========\cf2 \
++(\cf6 UIColor\cf2 *)colorWithHexString:(\cf6 NSString\cf2 *)hex\
+\{\
+    \cf6 NSString\cf2  *cString = [[hex \cf9 stringByTrimmingCharactersInSet\cf2 :[\cf6 NSCharacterSet\cf2  \cf9 whitespaceAndNewlineCharacterSet\cf2 ]] \cf9 uppercaseString\cf2 ];\
+    \
+    \cf7 // String should be 6 or 8 characters\cf2 \
+    \cf5 if\cf2  ([cString \cf9 length\cf2 ] < \cf8 6\cf2 ) \cf5 return\cf2  [\cf6 UIColor\cf2  \cf9 grayColor\cf2 ];\
+    \
+    \cf7 // strip 0X if it appears\cf2 \
+    \cf5 if\cf2  ([cString \cf9 hasPrefix\cf2 :\cf4 @"0X"\cf2 ]) cString = [cString \cf9 substringFromIndex\cf2 :\cf8 2\cf2 ];\
+    \
+    \cf5 if\cf2  ([cString \cf9 length\cf2 ] != \cf8 6\cf2 ) \cf5 return\cf2   [\cf6 UIColor\cf2  \cf9 grayColor\cf2 ];\
+    \
+    \cf7 // Separate into r, g, b substrings\cf2 \
+    \cf6 NSRange\cf2  range;\
+    range.\cf6 location\cf2  = \cf8 0\cf2 ;\
+    range.\cf6 length\cf2  = \cf8 2\cf2 ;\
+    \cf6 NSString\cf2  *rString = [cString \cf9 substringWithRange\cf2 :range];\
+    \
+    range.\cf6 location\cf2  = \cf8 2\cf2 ;\
+    \cf6 NSString\cf2  *gString = [cString \cf9 substringWithRange\cf2 :range];\
+    \
+    range.\cf6 location\cf2  = \cf8 4\cf2 ;\
+    \cf6 NSString\cf2  *bString = [cString \cf9 substringWithRange\cf2 :range];\
+    \
+    \cf7 // Scan values\cf2 \
+    \cf5 unsigned\cf2  \cf5 int\cf2  r, g, b;\
+    [[\cf6 NSScanner\cf2  \cf9 scannerWithString\cf2 :rString] \cf9 scanHexInt\cf2 :&r];\
+    [[\cf6 NSScanner\cf2  \cf9 scannerWithString\cf2 :gString] \cf9 scanHexInt\cf2 :&g];\
+    [[\cf6 NSScanner\cf2  \cf9 scannerWithString\cf2 :bString] \cf9 scanHexInt\cf2 :&b];\
+    \
+    \cf5 return\cf2  [\cf6 UIColor\cf2  \cf9 colorWithRed\cf2 :((\cf5 float\cf2 ) r / \cf8 255.0f\cf2 )\
+                           \cf9 green\cf2 :((\cf5 float\cf2 ) g / \cf8 255.0f\cf2 )\
+                            \cf9 blue\cf2 :((\cf5 float\cf2 ) b / \cf8 255.0f\cf2 )\
+                           \cf9 alpha\cf2 :\cf8 1.0f\cf2 ];\
+\}\
+\
+\
+\cf7 //====set font=========\cf2 \
++ (\cf5 void\cf2 ) setFontRomyCapsStyleToAllControls : (\cf6 UIView\cf2  *)view\
+\{\
+    \
+    \cf7 /*for (NSString* family in [UIFont familyNames])\
+     \{\
+     NSLog(@"%@", family);\
+     \
+     for (NSString* name in [UIFont fontNamesForFamilyName: family])\
+     \{\
+     NSLog(@"  %@", name);\
+     \}\
+     \}\
+     */\cf2 \
+    \
+    \cf5 @try\cf2  \{\
+        \cf5 for\cf2  (\cf6 UIView\cf2  *subView \cf5 in\cf2  view.\cf6 subviews\cf2 )\
+        \{\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UILabel\cf2  \cf9 class\cf2 ]]) \{\
+                \cf6 UILabel\cf2  *lbl = (\cf6 UILabel\cf2  *) subView;\
+                lbl.\cf6 font\cf2  = [\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontRomyCapsRegular\cf2  \cf9 size\cf2 :lbl.\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+                \
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UIButton\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"Button");\cf2 \
+                \cf6 UIButton\cf2  *btn = (\cf6 UIButton\cf2  *)subView;\
+                \cf7 // NSLog(@"btn.titleLabel.font.fontName : %@",btn.titleLabel.font.fontName);\cf2 \
+                btn.\cf6 titleLabel\cf2 .\cf6 font\cf2  =[\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontRomyCapsRegular\cf2  \cf9 size\cf2 :btn.\cf6 titleLabel\cf2 .\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UITextField\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"TextFiled");\cf2 \
+                \cf6 UITextField\cf2  *txt = (\cf6 UITextField\cf2  *)subView;\
+                \cf7 // NSLog(@"myFont : %@",myFont);\cf2 \
+                txt.\cf6 font\cf2 =[\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontRomyCapsRegular\cf2  \cf9 size\cf2 :txt.\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UITextView\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"TextFiled");\cf2 \
+                \cf6 UITextView\cf2  *txt = (\cf6 UITextView\cf2  *)subView;\
+                \cf7 // NSLog(@"myFont : %@",myFont);\cf2 \
+                txt.\cf6 font\cf2 =[\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontRomyCapsRegular\cf2  \cf9 size\cf2 :txt.\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UIView\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"Sub Views");\cf2 \
+                [\cf5 self\cf2  \cf11 setFontRomyCapsStyleToAllControls\cf2 :subView];\
+            \}\
+        \}\
+        \
+    \}\
+    \cf5 @catch\cf2  (NSException *exception) \{\
+        \cf9 NSLog\cf2 (\cf4 @"Error in setFontStyleToAllControls => %@"\cf2 ,exception.\cf6 description\cf2 );\
+    \}\
+\}\
+\
++ (\cf5 void\cf2 ) setFontUbuntuStyleToAllControls : (\cf6 UIView\cf2  *)view\
+\{\
+    \
+    \cf5 @try\cf2  \{\
+        \cf5 for\cf2  (\cf6 UIView\cf2  *subView \cf5 in\cf2  view.\cf6 subviews\cf2 )\
+        \{\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UILabel\cf2  \cf9 class\cf2 ]]) \{\
+                \cf6 UILabel\cf2  *lbl = (\cf6 UILabel\cf2  *) subView;\
+                lbl.\cf6 font\cf2  = [\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontUbuntuRegular\cf2  \cf9 size\cf2 :lbl.\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+                \
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UIButton\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"Button");\cf2 \
+                \cf6 UIButton\cf2  *btn = (\cf6 UIButton\cf2  *)subView;\
+                \cf7 // NSLog(@"btn.titleLabel.font.fontName : %@",btn.titleLabel.font.fontName);\cf2 \
+                btn.\cf6 titleLabel\cf2 .\cf6 font\cf2  =[\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontUbuntuRegular\cf2  \cf9 size\cf2 :btn.\cf6 titleLabel\cf2 .\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UITextField\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"TextFiled");\cf2 \
+                \cf6 UITextField\cf2  *txt = (\cf6 UITextField\cf2  *)subView;\
+                \cf7 // NSLog(@"myFont : %@",myFont);\cf2 \
+                txt.\cf6 font\cf2 =[\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontUbuntuRegular\cf2  \cf9 size\cf2 :txt.\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UITextView\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"TextFiled");\cf2 \
+                \cf6 UITextView\cf2  *txt = (\cf6 UITextView\cf2  *)subView;\
+                \cf7 // NSLog(@"myFont : %@",myFont);\cf2 \
+                txt.\cf6 font\cf2 =[\cf6 UIFont\cf2  \cf9 fontWithName\cf2 :\cf10 myFontUbuntuRegular\cf2  \cf9 size\cf2 :txt.\cf6 font\cf2 .\cf6 pointSize\cf2 ];\
+            \}\
+            \cf5 if\cf2  ([subView \cf9 isKindOfClass\cf2 :[\cf6 UIView\cf2  \cf9 class\cf2 ]]) \{\
+                \cf7 //NSLog(@"Sub Views");\cf2 \
+                [\cf5 self\cf2  \cf11 setFontUbuntuStyleToAllControls\cf2 :subView];\
+            \}\
+        \}\
+        \
+    \}\
+    \cf5 @catch\cf2  (NSException *exception) \{\
+        \cf9 NSLog\cf2 (\cf4 @"Error in setFontStyleToAllControls => %@"\cf2 ,exception.\cf6 description\cf2 );\
+    \}\
+\}\
+\
+\
+\
+\cf7 //=====for ASIHTTPRequest======\cf2 \
+\
++ (\cf6 NSString\cf2  *) getJsonStringFromXML :(\cf6 NSString\cf2  *)xmlString startingTag: (\cf6 NSString\cf2  *) startTag endingTag: (\cf6 NSString\cf2  *)endTag\
+\{\
+    \
+    \cf5 @try\cf2  \{\
+        \
+        \cf7 // NSLog(@"\\n\\n\\n%@ \\n\\n\\n\\n",[xmlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);\cf2 \
+        \
+        xmlString= [xmlString \cf9 stringByReplacingPercentEscapesUsingEncoding\cf2 :\cf9 NSUTF8StringEncoding\cf2 ];\
+        \cf7 //xmlString = [NSString stringWithCString:cString encoding:NSNonLossyASCIIStringEncoding];\cf2 \
+        \
+        xmlString=[xmlString \cf9 stringByReplacingOccurrencesOfString\cf2 : \cf4 @"&amp;"\cf2  \cf9 withString\cf2 : \cf4 @"&"\cf2 ];\
+        xmlString = [xmlString \cf9 stringByTrimmingCharactersInSet\cf2 :\
+                     [\cf6 NSCharacterSet\cf2  \cf9 whitespaceAndNewlineCharacterSet\cf2 ]];\
+        xmlString = [xmlString \cf9 stringByReplacingOccurrencesOfString\cf2 :\cf4 @"\\r"\cf2  \cf9 withString\cf2 :\cf4 @""\cf2 ];\
+        xmlString = [xmlString \cf9 stringByReplacingOccurrencesOfString\cf2 :\cf4 @"\\n"\cf2  \cf9 withString\cf2 :\cf4 @"\\\\n"\cf2 ];\
+\
+        \
+        \cf7 //xmlString = @"<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>\\n<response>116363112</response>";\cf2 \
+        \cf7 //startTag = @"<response>"; endTag = @"</response>";\cf2 \
+        \
+        \cf6 NSRange\cf2  r1 = [xmlString \cf9 rangeOfString\cf2 :startTag];\
+        \cf6 NSRange\cf2  r2 = [xmlString \cf9 rangeOfString\cf2 :endTag];\
+        \cf6 NSRange\cf2  rSub = \cf9 NSMakeRange\cf2 (r1.\cf6 location\cf2  + r1.\cf6 length\cf2 , r2.\cf6 location\cf2  - r1.\cf6 location\cf2  - r1.\cf6 length\cf2 );\
+        \cf6 NSString\cf2  *sub = [xmlString \cf9 substringWithRange\cf2 :rSub];\
+        \cf7 //NSLog(@"sub : %@", sub);\cf2 \
+        \cf5 return\cf2   sub;\
+    \}\
+    \cf5 @catch\cf2  (NSException *exception) \{\
+        \cf5 return\cf2  \cf4 @""\cf2 ;\
+    \}\
+    \
+    \
+\}\
+\
++ (\cf5 void\cf2 ) loadDataFromServer : (\cf6 NSString\cf2  *) methodName : (\cf6 NSDictionary\cf2  *)dictParameters : (\cf5 id\cf2 ) viewID : (\cf5 int\cf2 ) requestTag\
+\{\
+    \cf6 NSURL\cf2  *url = [\cf6 NSURL\cf2  \cf9 URLWithString\cf2 :[\cf6 NSString\cf2  \cf9 stringWithFormat\cf2 : \cf4 @"%@"\cf2 ,\cf10 WebServiceURL\cf2 ]];\
+    \cf10 ASIFormDataRequest\cf2  *request = [\cf10 ASIFormDataRequest\cf2  \cf11 requestWithURL\cf2 :url];\
+    request.\cf10 tag\cf2 = requestTag;\
+    [request \cf11 setRequestMethod\cf2 :\cf4 @"POST"\cf2 ];\
+    [request \cf11 addRequestHeader\cf2 :\cf4 @"Content-Type"\cf2  \cf11 value\cf2 :\cf4 @"text/xml; charset=utf-8"\cf2 ];\
+    [request \cf11 addRequestHeader\cf2 :\cf4 @"SOAPAction"\cf2  \cf11 value\cf2 :[ \cf6 NSString\cf2  \cf9 stringWithFormat\cf2 :\cf4 @"http://tempuri.org/%@"\cf2 , methodName]];\
+    \
+    \cf6 NSMutableString\cf2  *strParameters = [[\cf6 NSMutableString\cf2  \cf9 alloc\cf2 ]\cf9 init\cf2 ];\
+    \cf5 for\cf2 (\cf5 int\cf2  i = \cf8 0\cf2 ; i < dictParameters.\cf6 allKeys\cf2 .\cf6 count\cf2 ; i++)\
+    \{\
+        \cf6 NSString\cf2  *Key = [\cf6 NSString\cf2  \cf9 stringWithFormat\cf2 :\cf4 @"%@"\cf2 ,[dictParameters.\cf6 allKeys\cf2  \cf9 objectAtIndex\cf2 :i]];\
+        \cf6 NSString\cf2  *Value = [\cf6 NSString\cf2  \cf9 stringWithFormat\cf2 :\cf4 @"%@"\cf2 ,[dictParameters.\cf6 allValues\cf2  \cf9 objectAtIndex\cf2 :i]];\
+        \
+        [strParameters \cf9 appendFormat\cf2 :\cf4 @"<%@>%@</%@>"\cf2 ,Key,Value,Key];\
+    \}\
+    \
+    \cf6 NSString\cf2  *soapMessage = [\cf6 NSString\cf2  \cf9 stringWithFormat\cf2 :\
+                             \cf4 @"<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>"\cf2 \
+                             \cf4 "<soap:Envelope xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\" xmlns:soap=\\"http://schemas.xmlsoap.org/soap/envelope/\\">"\cf2 \
+                             \cf4 "<soap:Body>"\cf2 \
+                             \cf4 "<%@ xmlns=\\"http://tempuri.org/\\">"\cf2 \
+                             \cf4 "%@"\cf2 \
+                             \cf4 "</%@>"\cf2 \
+                             \cf4 "</soap:Body>"\cf2 \
+                             \cf4 "</soap:Envelope>"\cf2 ,methodName,strParameters,methodName];\
+    \
+    \cf6 NSString\cf2  *messageLength = [\cf6 NSString\cf2  \cf9 stringWithFormat\cf2 :\cf4 @"%lu"\cf2 ,(\cf5 unsigned\cf2  \cf5 long\cf2 )[soapMessage \cf9 length\cf2 ]];\
+    \cf7 //    NSLog(@"soapmessage : %@",soapMessage);\cf2 \
+    [request \cf11 addRequestHeader\cf2 :\cf4 @"Content-Length"\cf2  \cf11 value\cf2 :messageLength];\
+    [request \cf11 appendPostData\cf2 :[soapMessage \cf9 dataUsingEncoding\cf2 :\cf9 NSUTF8StringEncoding\cf2 ]];\
+    [request \cf11 setDelegate\cf2 :viewID];\
+    request.\cf10 timeOutSeconds\cf2  = \cf8 60\cf2 ;\
+    [request \cf11 startAsynchronous\cf2 ];\
+\}\
+\
+\
+\cf7 //======make circle view=====\cf2 \
++(\cf5 void\cf2 ) makeCircleToView:(\cf6 UIView\cf2  *) view\
+\{\
+    \cf6 CALayer\cf2  *imageLayer = view.\cf6 layer\cf2 ;\
+    [view.\cf6 layer\cf2  \cf9 setCornerRadius\cf2 :view.\cf6 frame\cf2 .\cf6 size\cf2 .\cf6 width\cf2 /\cf8 2\cf2 ];\
+    [imageLayer \cf9 setMasksToBounds\cf2 :\cf5 YES\cf2 ];\
+\}\
+\
+\cf7 //=====make round button===\cf2 \
++(\cf5 void\cf2 ) makeRoundedToView:(\cf6 UIView\cf2  *) view\
+\{\
+    view.\cf6 layer\cf2 .\cf6 masksToBounds\cf2 =\cf5 YES\cf2 ;\
+    view.\cf6 layer\cf2 .\cf6 cornerRadius\cf2  = \cf8 9.0\cf2 ;\
+\}\
+\
+\
+\cf7 //====set placeHolder Color===\cf2 \
++(\cf5 void\cf2 )setTextFiledPlaceHolder: (\cf6 UITextField\cf2  *)textFiledName coordinate: (\cf6 NSString\cf2  *)placeHolderName\
+\{\
+\cf7 //    UIColor *color = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:0.5];\cf2 \
+    \cf6 UIColor\cf2  *color = [\cf6 UIColor\cf2  \cf9 lightGrayColor\cf2 ];\
+\
+\
+    textFiledName.\cf6 attributedPlaceholder\cf2  =[[\cf6 NSAttributedString\cf2  \cf9 alloc\cf2 ]\cf9 initWithString\cf2 :placeHolderName \cf9 attributes\cf2 :\cf8 @\{\cf6 NSForegroundColorAttributeName\cf2 :color\cf8 \}\cf2 ];\
+\}\
+\
+\
+\cf7 //==check emailid====\cf2 \
++(\cf5 BOOL\cf2 ) IsValidEmail:(\cf6 NSString\cf2  *)checkString\
+\{\
+    \cf5 BOOL\cf2  stricterFilter = \cf5 YES\cf2 ; \cf7 // Discussion ttp://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/\cf2 \
+    \cf6 NSString\cf2  *stricterFilterString = \cf4 @"[A-Z0-9a-z\\\\._%+-]+@([A-Za-z0-9-]+\\\\.)+[A-Za-z]\{2,4\}"\cf2 ;\
+    \cf6 NSString\cf2  *laxString = \cf4 @".+@([A-Za-z0-9]+\\\\.)+[A-Za-z]\{2\}[A-Za-z]*"\cf2 ;\
+    \cf6 NSString\cf2  *emailRegex = stricterFilter ? stricterFilterString : laxString;\
+    \cf6 NSPredicate\cf2  *emailTest = [\cf6 NSPredicate\cf2  \cf9 predicateWithFormat\cf2 :\cf4 @"SELF MATCHES %@"\cf2 , emailRegex];\
+    \cf5 return\cf2  [emailTest \cf9 evaluateWithObject\cf2 :checkString];\
+\}\
+\
+\cf7 //=====check mobile number===\cf2 \
++(\cf5 BOOL\cf2 ) isValidMobileNumber:(\cf6 NSString\cf2  *)checkString : (\cf5 int\cf2 ) length\
+\{\
+    \cf6 NSString\cf2  *regex = \cf4 @"^[0-9]*$"\cf2 ;\
+    \cf6 NSPredicate\cf2  *mobileNumberTest = [\cf6 NSPredicate\cf2  \cf9 predicateWithFormat\cf2 :\cf4 @"SELF MATCHES %@"\cf2 , regex];\
+    \cf5 BOOL\cf2  result = [mobileNumberTest \cf9 evaluateWithObject\cf2 :checkString];\
+    \cf5 if\cf2  (result ==\cf5 YES\cf2 )\
+        \cf5 if\cf2  (length>\cf8 11\cf2 )\
+            \cf5 return\cf2  \cf5 NO\cf2 ;\
+    \
+    \cf5 return\cf2  result;\
+\}\
+\
+\cf7 //===validateUrl=======\cf2 \
++ (\cf5 BOOL\cf2 ) validateUrl: (\cf6 NSString\cf2  *) candidate\
+\{\
+    \cf6 NSString\cf2  *urlRegEx =\
+    \cf4 @"(http|https)://((\\\\w)*|([0-9]*)|([-|_])*)+([\\\\.|/]((\\\\w)*|([0-9]*)|([-|_])*))+"\cf2 ;\
+    \cf6 NSPredicate\cf2  *urlTest = [\cf6 NSPredicate\cf2  \cf9 predicateWithFormat\cf2 :\cf4 @"SELF MATCHES %@"\cf2 , urlRegEx];\
+    \cf5 return\cf2  [urlTest \cf9 evaluateWithObject\cf2 :candidate];\
+\}\
+\
+\cf7 //=====converet html string =====\cf2 \
+\
++(\cf6 NSString\cf2  *)convertHTMLStringToNSString:(\cf6 NSString\cf2  *)html\
+\{\
+    \
+    \cf6 NSScanner\cf2  *myScanner;\
+    \cf6 NSString\cf2  *text = \cf5 nil\cf2 ;\
+    myScanner = [\cf6 NSScanner\cf2  \cf9 scannerWithString\cf2 :html];\
+    \
+    \cf5 while\cf2  ([myScanner \cf9 isAtEnd\cf2 ] == \cf5 NO\cf2 ) \{\
+        \
+        [myScanner \cf9 scanUpToString\cf2 :\cf4 @"<"\cf2  \cf9 intoString\cf2 :\cf5 NULL\cf2 ] ;\
+        \
+        [myScanner \cf9 scanUpToString\cf2 :\cf4 @">"\cf2  \cf9 intoString\cf2 :&text] ;\
+        \
+        html = [html \cf9 stringByReplacingOccurrencesOfString\cf2 :[\cf6 NSString\cf2  \cf9 stringWithFormat\cf2 :\cf4 @"%@>"\cf2 , text] \cf9 withString\cf2 :\cf4 @""\cf2 ];\
+    \}\
+    html = [html \cf9 stringByTrimmingCharactersInSet\cf2 :[\cf6 NSCharacterSet\cf2  \cf9 whitespaceAndNewlineCharacterSet\cf2 ]];\
+    \
+    \cf5 return\cf2  html;\
+\}\
+\
+\
++ (\cf6 NSString\cf2 *)convertNSStringToHTMLString:(\cf6 NSString\cf2 *)str\
+\{\
+    \cf6 NSString\cf2  * string = [[\cf6 NSString\cf2  \cf9 alloc\cf2 ]\cf9 init\cf2 ];\
+    \
+    string = [[[[[str \cf9 stringByReplacingOccurrencesOfString\cf2 : \cf4 @"&amp;"\cf2  \cf9 withString\cf2 : \cf4 @"&"\cf2 ]\
+                                   \cf9 stringByReplacingOccurrencesOfString\cf2 : \cf4 @"&quot;"\cf2  \cf9 withString\cf2 : \cf4 @"\\""\cf2 ]\
+                                  \cf9 stringByReplacingOccurrencesOfString\cf2 : \cf4 @"&#39;"\cf2  \cf9 withString\cf2 : \cf4 @"'"\cf2 ]\
+                                 \cf9 stringByReplacingOccurrencesOfString\cf2 : \cf4 @"&gt;"\cf2  \cf9 withString\cf2 : \cf4 @">"\cf2 ]\
+                                \cf9 stringByReplacingOccurrencesOfString\cf2 : \cf4 @"&lt;"\cf2  \cf9 withString\cf2 : \cf4 @"<"\cf2 ];\
+    \
+    \
+    \cf5 return\cf2  string;\
+\}\
+\
+\cf7 //=====set, get and delete global value =====\cf2 \
+\
+\
++ (\cf5 void\cf2 ) setGlobalObjectForKey : (\cf6 NSObject\cf2  *)obj key: (\cf6 NSString\cf2  *) key\
+\{\
+    \cf6 NSUserDefaults\cf2  *globalInfo = [\cf6 NSUserDefaults\cf2  \cf9 standardUserDefaults\cf2 ];\
+    [globalInfo \cf9 setObject\cf2 :obj \cf9 forKey\cf2 :key];\
+    [globalInfo \cf9 synchronize\cf2 ];\
+\}\
+\
++ (\cf6 NSObject\cf2  *) getGlobalObjectForKey : (\cf6 NSString\cf2  *) key\
+\{\
+    \cf6 NSUserDefaults\cf2  *globalInfo = [\cf6 NSUserDefaults\cf2  \cf9 standardUserDefaults\cf2 ];\
+    \cf5 return\cf2  [globalInfo \cf9 objectForKey\cf2 :key];\
+    \
+\}\
+\
++ (\cf5 void\cf2 ) deleteGlobalObjectForKey : (\cf6 NSString\cf2  *) key\
+\{\
+    \cf6 NSUserDefaults\cf2  *globalInfo = [\cf6 NSUserDefaults\cf2  \cf9 standardUserDefaults\cf2 ];\
+    [globalInfo \cf9 removeObjectForKey\cf2 :key];\
+    [globalInfo \cf9 synchronize\cf2 ];\
+    \
+\}\
+\
+\cf3 #pragma mark - hear use a mathod for select = 0 in filter array\
+\cf2 \
+\cf7 //======use in reset button (filter screen) and left panel menu button=======\cf2 \
+\
+\cf7 //===for set all select value = 0 && update NSUserDefualt =====\cf2 \
+\
++ (\cf5 void\cf2 ) allFilterSelectValueMustBeZero\
+\{\
+    \cf5 @try\cf2 \
+    \{\
+        \cf7 //======FOR SELECT VALUE MUST BE 0===================\cf2 \
+        \
+        \cf7 //    NSLog(@"==> %@",[Common getGlobalObjectForKey:@"arrayOfAllFilterData"]);\cf2 \
+        \
+        \cf6 NSMutableArray\cf2  * arrayOfAllFilterData = [[\cf6 NSMutableArray\cf2  \cf9 alloc\cf2 ]\cf9 init\cf2 ];\
+        arrayOfAllFilterData = [[\cf10 Common\cf2  \cf11 getGlobalObjectForKey\cf2 :\cf4 @"arrayOfAllFilterData"\cf2 ] \cf9 mutableCopy\cf2 ];\
+\cf7 //            NSLog(@"arrayOfAllFilterData ==> %@ \\n\\n arrayOfAllFilterData Count ==> %lu ",arrayOfAllFilterData,(unsigned long)arrayOfAllFilterData.count);\cf2 \
+        \
+        \cf5 if\cf2  (arrayOfAllFilterData.\cf6 count\cf2  != \cf8 0\cf2 )\
+        \{\
+       \
+            \cf5 for\cf2  (\cf5 int\cf2  z = \cf8 0\cf2 ; z < arrayOfAllFilterData.\cf6 count\cf2  ; z++)\
+            \{\
+                \cf6 NSString\cf2  * str;\
+                \
+                \cf5 if\cf2  (z == \cf8 0\cf2 )\
+                \{\
+                    str = \cf4 @"Category"\cf2 ;\
+                \}\
+                \cf5 else\cf2  \cf5 if\cf2  (z == \cf8 1\cf2 )\
+                \{\
+                    str = \cf4 @"Color"\cf2 ;\
+                \}\
+                \cf5 else\cf2  \cf5 if\cf2  (z == \cf8 2\cf2 )\
+                \{\
+                    str = \cf4 @"Material"\cf2 ;\
+                \}\
+                \cf5 else\cf2  \cf5 if\cf2  (z == \cf8 3\cf2 )\
+                \{\
+                    str = \cf4 @"Type"\cf2 ;\
+                \}\
+                \cf5 else\cf2  \cf5 if\cf2  (z == \cf8 4\cf2 )\
+                \{\
+                    str = \cf4 @"Size"\cf2 ;\
+                \}\
+                \cf5 else\cf2  \cf5 if\cf2  (z == \cf8 5\cf2 )\
+                \{\
+                    str = \cf4 @"Brand"\cf2 ;\
+                \}\
+                \
+                \
+                \cf7 //        NSLog(@"==> %@",[[arrayOfAllFilterData objectAtIndex:z] valueForKey:str] );\cf2 \
+                \cf7 //        NSLog(@"==> %u",[[[arrayOfAllFilterData objectAtIndex:z] valueForKey:str] count]);\cf2 \
+                \
+                \cf6 NSMutableArray\cf2  * array = [[\cf6 NSMutableArray\cf2  \cf9 alloc\cf2 ]\cf9 init\cf2 ];\
+                array = [[[arrayOfAllFilterData \cf9 objectAtIndex\cf2 :z] \cf9 valueForKey\cf2 :str] \cf9 mutableCopy\cf2 ];\
+                \cf7 //        NSLog(@"array ==> %@",array);\cf2 \
+                \
+                \cf5 for\cf2  (\cf5 int\cf2  i = \cf8 0\cf2 ; i < array.\cf6 count\cf2 ; i++)\
+                \{\
+                    \cf6 NSMutableDictionary\cf2  * dict =[\cf6 NSMutableDictionary\cf2  \cf9 dictionaryWithDictionary\cf2 :[array \cf9 objectAtIndex\cf2 :i]];\
+\cf7 //                    NSLog(@"dict ==> %@",dict);\cf2 \
+                    [dict \cf9 setObject\cf2 :\cf4 @"0"\cf2  \cf9 forKey\cf2 :\cf4 @"select"\cf2 ];\
+                    [array \cf9 removeObjectAtIndex\cf2 :i];\
+                    [array \cf9 insertObject\cf2 :dict \cf9 atIndex\cf2 :i];\
+                    \
+                \}\
+                \
+                \cf7 //        NSLog(@"array ==> %@",array);\cf2 \
+                \
+                [arrayOfAllFilterData \cf9 removeObjectAtIndex\cf2 :z];\
+                \cf6 NSMutableDictionary\cf2  * addDict = [[\cf6 NSMutableDictionary\cf2  \cf9 alloc\cf2 ] \cf9 init\cf2 ];\
+                [addDict \cf9 setObject\cf2 :array \cf9 forKey\cf2 :str];\
+                [arrayOfAllFilterData \cf9 insertObject\cf2 :addDict \cf9 atIndex\cf2 :z];\
+            \}\
+            \
+            \cf7 //   NSLog(@"arrayOfAllFilterData ==> %@ \\n\\n arrayOfAllFilterData Count ==> %d ",arrayOfAllFilterData,arrayOfAllFilterData.count);\cf2 \
+            \
+            [\cf10 Common\cf2  \cf11 deleteGlobalObjectForKey\cf2 :\cf4 @"arrayOfAllFilterData"\cf2 ];\
+            [\cf10 Common\cf2  \cf11 setGlobalObjectForKey\cf2 :arrayOfAllFilterData \cf11 key\cf2 :\cf4 @"arrayOfAllFilterData"\cf2 ];\
+            \
+            \cf7 //            NSLog(@"array ==> %@",[Common getGlobalObjectForKey:@"arrayOfAllFilterData"]);\cf2 \
+            \
+            \cf7 //========================================================\cf2 \
+        \}\
+    \}\
+    \cf5 @catch\cf2  (NSException *exception)\
+    \{\
+        \cf9 NSLog\cf2 (\cf4 @"exception ==> %@"\cf2 ,exception);\
+    \}\
+\}\
+\
+\cf3 #pragma mark - UIImageView Center crop\
+\cf2 \
+\cf7 // Returns largest possible centered cropped image.\cf2 \
++ (\cf6 UIImage\cf2  *)centerCropImage:(\cf6 NSString\cf2  *)strImageUrl\
+\{\
+\
+    \cf6 NSURL\cf2  *url = [\cf6 NSURL\cf2  \cf9 URLWithString\cf2 :strImageUrl];\
+    \cf6 NSData\cf2  *data = [\cf6 NSData\cf2  \cf9 dataWithContentsOfURL\cf2 :url];\
+    \cf6 UIImage\cf2  *image = [[\cf6 UIImage\cf2  \cf9 alloc\cf2 ] \cf9 initWithData\cf2 :data];\
+    \
+    \
+    \cf7 // Use smallest side length as crop square length\cf2 \
+    \cf6 CGFloat\cf2  squareLength = \cf3 MIN\cf2 (image.\cf6 size\cf2 .\cf6 width\cf2 , image.\cf6 size\cf2 .\cf6 height\cf2 );\
+    \cf7 // Center the crop area\cf2 \
+    \cf6 CGRect\cf2  clippedRect = \cf9 CGRectMake\cf2 ((image.\cf6 size\cf2 .\cf6 width\cf2  - squareLength) / \cf8 2\cf2 , (image.\cf6 size\cf2 .\cf6 height\cf2  - squareLength) / \cf8 2\cf2 , squareLength, squareLength);\
+    \
+    \cf7 // Crop logic\cf2 \
+    \cf6 CGImageRef\cf2  imageRef = \cf9 CGImageCreateWithImageInRect\cf2 ([image \cf9 CGImage\cf2 ], clippedRect);\
+    \cf6 UIImage\cf2  * croppedImage = [\cf6 UIImage\cf2  \cf9 imageWithCGImage\cf2 :imageRef];\
+    \cf9 CGImageRelease\cf2 (imageRef);\
+    \cf5 return\cf2  croppedImage;\
+\}\
+\
+\cf5 @end\cf2 \
+\
+\
+\
+\
+\
+////////////////////////////////////EXTRA////////////////////////////\
+\
+Call SOAP Web services\
+\
+ 		 \cf7 //=====login ====\cf2 \
+        \cf6 NSMutableDictionary\cf2  *dictTemp = [[\cf6 NSMutableDictionary\cf2  \cf9 alloc\cf2 ]\cf9 init\cf2 ];\
+        [dictTemp \cf9 setObject\cf2 :@\'93test@gmail.com\'94 \cf9 forKey\cf2 :\cf4 @"EmailID"\cf2 ];\
+        [dictTemp \cf9 setObject\cf2 :@\'93123\'94 \cf9 forKey\cf2 :\cf4 @"Password"\cf2 ];\
+        [\cf10 Common\cf2  \cf11 loadDataFromServer\cf2 :\cf4 @"funLogin"\cf2  :dictTemp :\cf5 self\cf2  :\cf8 1\cf2 ];\
+        [\cf5 self\cf2  \cf11 showLoader\cf2 ];\
+        \cf7 //==============\
+\
+\
+\
+\cf2 - (\cf5 void\cf2 )requestFinished:(\cf10 ASIHTTPRequest\cf2  *)request\
+\{\
+\cf5 if\cf2 (request.\cf10 tag\cf2  == \cf8 1\cf2 )\
+        \{\
+            \
+            \cf6 NSString\cf2  *responseString = [[\cf6 NSString\cf2  \cf9 alloc\cf2 ] \cf9 initWithData\cf2 :[request \cf11 responseData\cf2 ] \cf9 encoding\cf2 :\cf9 NSUTF8StringEncoding\cf2 ];\
+            \
+            \cf6 NSRange\cf2  r1 = [responseString \cf9 rangeOfString\cf2 :\cf4 @"<resulr>"\cf2 ];\
+            \cf6 NSRange\cf2  r2 = [responseString \cf9 rangeOfString\cf2 :\cf4 @"</resulr>"\cf2 ];\
+            \cf6 NSRange\cf2  rSub = \cf9 NSMakeRange\cf2 (r1.\cf6 location\cf2  + r1.\cf6 length\cf2 , r2.\cf6 location\cf2  - r1.\cf6 location\cf2  - r1.\cf6 length\cf2 );\
+            \cf6 NSString\cf2  *sub = [responseString \cf9 substringWithRange\cf2 :rSub];\
+            \cf6 NSArray\cf2  * tampArray = [sub \cf11 JSONValue\cf2 ];\
+\
+			//OR\
+/*\
+            \cf6 NSString\cf2  *responseString = [[\cf6 NSString\cf2  \cf9 alloc\cf2 ] \cf9 initWithData\cf2 :[request \cf11 responseData\cf2 ] \cf9 encoding\cf2 :\cf9 NSUTF8StringEncoding\cf2 ];\
+            \
+            \cf6 NSString\cf2  * str = [[[\cf10 Common\cf2  \cf11 getJsonStringFromXML\cf2 :responseString \cf11 startingTag\cf2 :\cf4 @"<resulr>"\cf2  \cf11 endingTag\cf2 :\cf4 @"</resulr>"\cf2 ]\cf11 JSONValue\cf2 ] \cf9 valueForKey\cf2 :\cf4 @"Message"\cf2 ] ;\
+*/\
+\
+\
+\}\
+\
+\
+- (\cf5 void\cf2 )requestFailed:(\cf10 ASIHTTPRequest\cf2  *)request\
+\{\
+	//===ALERT\
+\}}
